@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+form {
+    width: 30%;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+form h2 {
+    margin-bottom: 20px;
+}
+form .linha {
+    margin-top: 10px;
+}
+form .linha input {
+    float: right;
+    width: 80%;
+    height: 18px;
+}
+form .linha label {
+    font-size: 18px;
+}
+form .cadastro {
+    text-align: center;
+}
+form .cadastro button {
+    width: 30%;
+    height: 35px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}

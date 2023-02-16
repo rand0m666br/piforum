@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li class="logo"><a href="index.html">Fórum Teste</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="parceiros.html">Parceiros</a></li>
+                <div class="login">
+                    <li id="ativo"><a href="login.html">Login</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+    <h1>Login</h1>
+
+    <form action="" method="post">
+        <h2>Efetuar login</h2>
+        <div class="linha">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="linha">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha"><br>
+        </div>
+        <div class="cadastro">
+            <button type="submit">Entrar</button><br>
+            <span>Não tem um login? <a href="cadastro.html">Cadastre-se</a></span>
+        </div>
+    </form>
+</body>
+
+</html>

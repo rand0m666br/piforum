@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li class="logo"><a href="index.html">Fórum Teste</a></li>
+                <li><a href="forum.html">Fórum</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="parceiros.html">Parceiros</a></li>
+                <div class="login">
+                    <li><a href="login.html">Login</a></li>
+                    <li id="ativo"><a href="cadastro.html">Cadastro</a></li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+    <h1>Cadastro</h1>
+
+    <form action="" method="post">
+        <h2>Cadastro de membro</h2>
+        <div class="linha">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+        </div>
+        <div class="linha">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="linha">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha"><br>
+        </div>
+        <div class="linha">
+            <label for="confirma">Confirmar senha</label>
+            <input type="password" name="confirma" id="confirma"><br>
+        </div>
+        <div class="linha">
+            <label for="data">Data de nascimento</label>
+            <input type="date" name="data" id="data">
+        </div>
+        <div class="cadastro">
+            <button type="submit">Entrar</button><br>
+        </div>
+    </form>
+</body>
+
+</html>

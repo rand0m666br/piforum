@@ -15,6 +15,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
 
+    <!-- Javascript -->
+    <script src="acao/jquery.js"></script>
+    <script src="acao/acesso.js"></script>
+
     <title>Login</title>
 </head>
 
@@ -34,9 +38,11 @@
         </nav>
     </div>
 
+    <div id="mensagem"></div>
+
     <h1>Login</h1>
 
-    <form action="" method="post">
+    <form id="formlogin">
         <h2>Efetuar login</h2>
         <div class="linha">
             <label for="email">Email</label>
@@ -47,7 +53,7 @@
             <input type="password" name="senha" id="senha"><br>
         </div>
         <div class="cadastro">
-            <button type="submit">Entrar</button><br>
+            <button id="btnEntrar">Entrar</button><br>
             <span>Não tem um login? <a href="cadastro.html">Cadastre-se</a></span>
         </div>
     </form>

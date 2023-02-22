@@ -16,8 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Javascript -->
-    <script src="acao/jquery.js"></script>
-    <script src="acao/acesso.js"></script>
+    <script type="text/javascript" src="script/jquery.js"></script>
+    <script type="text/javascript" src="script/acesso.js"></script>
 
     <title>Login</title>
 </head>
@@ -26,13 +26,21 @@
     <div class="navbar">
         <nav>
             <ul>
-                <li class="logo"><a href="index.html">Fórum Teste</a></li>
-                <li><a href="forum.html">Fórum</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="parceiros.html">Parceiros</a></li>
+                <li class="logo"><a href="index.php">Fórum Teste</a></li>
+                <li><a href="forum.php">Fórum</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="parceiros.php">Parceiros</a></li>
                 <div class="login">
-                    <li id="ativo"><a href="login.html">Login</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
+
+                    <?php
+                    if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
+                    ?>
+                        <li><a href="conta.php">Minha conta</a></li>
+                        <li><a href="acao/logout.php">Sair</a></li>
+                    <?php } else { ?>
+                        <li id="ativo"><a href="login.php">Login</a></li>
+                        <li><a href="cadastro.php">Cadastro</a></li>
+                    <?php  } ?>
                 </div>
             </ul>
         </nav>
@@ -42,7 +50,7 @@
 
     <h1>Login</h1>
 
-    <form id="formlogin">
+    <form id="formularioLogin">
         <h2>Efetuar login</h2>
         <div class="linha">
             <label for="email">Email</label>
@@ -54,7 +62,7 @@
         </div>
         <div class="cadastro">
             <button id="btnEntrar">Entrar</button><br>
-            <span>Não tem um login? <a href="cadastro.html">Cadastre-se</a></span>
+            <span>Não tem um login? <a href="cadastro.php">Cadastre-se</a></span>
         </div>
     </form>
 </body>

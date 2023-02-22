@@ -15,20 +15,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
 
-    <title>Login</title>
+    <title>Cadastro</title>
 </head>
 
 <body>
     <div class="navbar">
         <nav>
             <ul>
-                <li class="logo"><a href="index.html">Fórum Teste</a></li>
-                <li><a href="forum.html">Fórum</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="parceiros.html">Parceiros</a></li>
+                <li class="logo"><a href="index.php">Fórum Teste</a></li>
+                <li><a href="forum.php">Fórum</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="parceiros.php">Parceiros</a></li>
                 <div class="login">
-                    <li><a href="login.html">Login</a></li>
-                    <li id="ativo"><a href="cadastro.html">Cadastro</a></li>
+
+                    <?php
+                    if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
+                    ?>
+                        <li><a href="conta.php">Minha conta</a></li>
+                        <li><a href="acao/logout.php">Sair</a></li>
+                    <?php } else { ?>
+                        <li><a href="login.php">Login</a></li>
+                        <li id="ativo"><a href="cadastro.php">Cadastro</a></li>
+                    <?php  } ?>
                 </div>
             </ul>
         </nav>

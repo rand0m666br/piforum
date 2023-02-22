@@ -2,14 +2,14 @@ $(function(){
     $("button#btnEntrar").on("click", function(e){
         e.preventDefault();
 
-        var campoEmail = $("form#formlogin #email").val();
-        var campoSenha = $("form#formlogin #senha").val();
+        var campoEmail = $("form#formularioLogin #email").val();
+        var campoSenha = $("form#formularioLogin #senha").val();
 
-        if (campoEmail.trim() == "" || campoSenha.trim() == "") {
+        if(campoEmail.trim() == "" || campoSenha.trim() == ""){
             $("div#mensagem").show().removeClass("red").html("Preencha todos os campos.");
         }else{
             $.ajax({
-                url: "login.php",
+                url: "acao/login.php",
                 type: "POST",
                 data: {
                     email: campoEmail,
@@ -19,16 +19,15 @@ $(function(){
                 success: function(retorno){
                     retorno = JSON.parse(retorno);
 
-                    if(retorno["erro"]) {
+                    if(retorno["erro"]){
                         $("div#mensagem").show().addClass("red").html(retorno["mensagem"]);
                     }else{
-                        // print("funcionou");
-                        window.location = "index.html";
+                        window.location = "dashboard.php";
                     }
                 },
 
                 error: function(){
-                    $("div#mensagem").show().addClass("red").html("Ocorreu um erro durante a solicitação.");
+                    $("div#mensagem").show().addClass("red").html("Ocorreu um erro durante a solicitação");
                 }
             });
         }

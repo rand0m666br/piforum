@@ -2,17 +2,21 @@ h1 {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
+
 form {
     width: 30%;
     margin: auto;
     font-family: 'Roboto', sans-serif;
 }
+
 form h2 {
     margin-bottom: 20px;
 }
+
 form .linha {
     margin-top: 10px;
 }
+
 form .linha input {
     float: right;
     width: 80%;
@@ -20,12 +24,15 @@ form .linha input {
     border-radius: 5px;
     border: solid 1px black;
 }
+
 form .linha label {
     font-size: 18px;
 }
+
 form .cadastro {
     text-align: center;
 }
+
 form .cadastro button {
     width: 30%;
     height: 35px;
@@ -37,9 +44,11 @@ form .cadastro button {
     color: white;
     border: solid 1px black;
 }
+
 form .cadastro button:hover {
     background-color: rgb(0, 102, 0);
 }
+
 form a:hover {
     color: rgb(0, 102, 0);
 }
@@ -47,11 +56,11 @@ form a:hover {
 div#mensagem {
     padding: 15px 0;
     font-family: 'Roboto', sans-serif;
-    color: white;
-    width: 98%;
+    color: rgb(0, 0, 0);
+    width: 100%;
     background-color: rgba(255, 153, 0, .7);
-    border: solid 3px rgb(255, 153, 0);
-    border-radius: 10px;
+    /* border: solid 3px rgb(255, 153, 0); */
+    /* border-radius: 10px; */
     margin: auto;
     margin-bottom: 10px;
     text-align: center;
@@ -63,5 +72,21 @@ div#mensagem {
 
 div#mensagem.red {
     background-color: rgba(255, 0, 0, 0.7);
-    border: solid 3px rgb(255, 0, 0);
+    /* border: solid 3px rgb(255, 0, 0); */
 }
+
+
+/* div#mensagem {
+    padding: 15px 0;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    background-color: rgb(255, 196, 0);
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: none;
+}
+div#mensagem.red {
+    background-color: rgba(255, 0, 0, 0.7);
+    border: solid 3px rgb(255, 0, 0);
+}  */

@@ -6,7 +6,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     $adm = $_SESSION["usuario"][1];
     $nome = $_SESSION["usuario"][0];
 
-    $superadm = $_SESSION["usuario"][2];
+    // $superadm = $_SESSION["usuario"][2];
 } else {
     header("location: login.php");
 }
@@ -20,12 +20,14 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/47e9777af5.js" crossorigin="anonymous"></script>
+
 
     <title>Dashboard - <?php echo $nome; ?></title>
 </head>
@@ -34,25 +36,16 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <div class="navbar">
         <nav>
             <ul>
-                <li class="logo"><a href="index.php">Fórum Teste</a></li>
-                <li><a href="forum.php">Fórum</a></li>
-                <li><a href="sobre.php">Sobre</a></li>
-                <li><a href="parceiros.php">Parceiros</a></li>
-                <div class="login">
-
-                    <?php
-                    if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
-                    ?>
-                        <li><a href="conta.php">Minha conta</a></li>
-                        <li><a href="acao/logout.php">Sair</a></li>
-                    <?php } else { ?>
-                        <li><a href="login.php">Login</a></li>
-                        <li><a href="cadastro.php">Cadastro</a></li>
-                    <?php  } ?>
-                </div>
+                <li class="dashboard"><a href="dashboard.php">Dashboard</a></li>
+                <li><span><?php echo $nome . " (ADM)" ?></span></li>
+                <li class="voltar"><a href="index.php"><button>Voltar</button></a></li>
             </ul>
         </nav>
     </div>
+    <form action="dashboard.php" method="post">
+        <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar por nome">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
 
     <?php if ($adm == 2) : ?>
         <table>
@@ -63,10 +56,16 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Senha</th>
+                    <th>Deletar</th>
                 </tr>
             </thead>
             <?php
-            $query = $conexao->prepare("SELECT * FROM usuario");
+            if (isset($_POST["pesquisa"])) {
+                $nome = $_POST["pesquisa"];
+                $query = $conexao->prepare("SELECT * FROM usuario WHERE nome='$nome'");
+            }else {
+                $query = $conexao->prepare("SELECT * FROM usuario");
+            }
             $query->execute();
 
             $user = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -81,6 +80,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                         <td><?php echo $usuarioAtual["nome"]; ?></td>
                         <td><?php echo $usuarioAtual["email"]; ?></td>
                         <td><?php echo $usuarioAtual["senha"]; ?></td>
+                        <td><button class="deletar">Deletar</button></td>
                     </tr>
                 <?php endfor; ?>
                 </tbody>

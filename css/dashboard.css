@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(253, 253, 253);
+}
+
+nav {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    box-shadow: 0px 1px 10px rgb(112, 112, 112);
+    font-family: 'Roboto', sans-serif;
+}
+
+nav ul {
+    width: 50%;
+    margin: auto;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+nav ul li span {
+    text-decoration: none;
+    color: rgb(95, 95, 95);
+    display: inline-block;
+    padding: 20px 0px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(95, 95, 95);
+} 
+
+nav ul li a:hover {
+    color: rgb(73, 126, 129);
+}
+
+.dashboard {
+    float: left;
+    font-weight: 900;
+    padding: 20px 0px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.voltar {
+    float: right;
+}
+
+.voltar button {
+    width: 80px;
+    height: 35px;
+    margin: 18% auto;
+    box-shadow: 0px 1px 5px rgb(112, 112, 112);
+    border: none;
+    background-color: white;
+    font-size: 16px;
+}
+
+.voltar button:hover {
+    background-color: rgb(235, 235, 235);
+    /* background-color: rgb(225, 255, 222); */
+    cursor: pointer;
+}
+
+.navbar {
+    padding-bottom: 70px;
+}
+
+table {
+    margin: 2% auto;
+    width: 60%;
+    text-align: justify;
+    box-shadow: 0px 1px 5px rgb(112, 112, 112);
+    font-family: 'Roboto', sans-serif;
+}
+
+th {
+    border-bottom: 1px solid rgb(112, 112, 112);
+    color: rgb(59, 59, 59);
+
+}
+
+th, td {
+    padding: 5px 0px;
+}   
+
+tbody {
+    color: rgb(66, 66, 66);
+}
+
+tbody:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+table tbody tr td button {
+    width: 70%;
+    height: 25px;
+    background-color: white;
+    border: none;
+    box-shadow: 0px 1px 3px rgb(112, 112, 112);
+    display: block;
+    margin: auto;
+}
+
+table tbody tr td button:hover {
+    background-color: rgb(255, 166, 166);
+    cursor: pointer;
+}
+
+form {
+    padding-top: 30px;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+form input[type=text] {
+    width: 55%;
+    height: 25px;
+    border: none;
+    background-color: white;
+    box-shadow: 0px 1px 3px rgb(112, 112, 112); 
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+form button {
+    /* width: 5%; */
+    width: 40px;
+    height: 25px;
+    border: none;
+    background-color: white;
+    box-shadow: 0px 1px 3px rgb(112, 112, 112); 
+    font-size: 18px;
+}
+
+form button:hover {
+    background-color: rgb(227, 255, 220);
+    cursor: pointer;
+}

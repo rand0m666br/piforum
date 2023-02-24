@@ -1,5 +1,13 @@
 <?php
 if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
+    require("acao/conexao.php");
+
+    $conexaoClass = new Conexao();
+    $conexao = $conexaoClass->conectar();
+
+    // $adm = $_SESSION["usuario"][1];
+    $nome = $_SESSION["usuario"][0];
+}else {
     header("location: index.php");
 }
 ?>
@@ -40,11 +48,11 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                     <?php
                     if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                     ?>
-                        <li><a href="conta.php">Minha conta</a></li>
+                        <li id="ativo"><a href="conta.php">Minha conta</a></li>
                         <li><a href="acao/logout.php">Sair</a></li>
                     <?php } else { ?>
                         <li><a href="login.php">Login</a></li>
-                        <li id="ativo"><a href="cadastro.php">Cadastro</a></li>
+                        <li><a href="cadastro.php">Cadastro</a></li>
                     <?php  } ?>
                 </div>
             </ul>
@@ -53,6 +61,13 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
 
     <h1>Cadastro</h1>
 
+    <?php
+        $query = $conexao->prepare("SELECT * FROM `usuario` WHERE `nome`='$nome'");
+        $query->execute();
+    
+        $user = $query->fetchAll(PDO::FETCH_ASSOC);
+    
+    ?>
     <form id="formularioCadastro">
         <h2>Cadastro de membro</h2>
         <div class="linha">

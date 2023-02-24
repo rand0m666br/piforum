@@ -49,30 +49,31 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
 
     <h1>Cadastro</h1>
 
-    <form action="" method="post">
+    <form id="formularioCadastro">
         <h2>Cadastro de membro</h2>
         <div class="linha">
-            <label for="nome">Nome de usuário</label>
-            <input type="text" name="nome" id="nome">
+            <label for="nomeCad">Nome de usuário</label>
+            <input type="text" name="nomeCad" id="nomeCad">
         </div>
         <div class="linha">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+            <label for="emailCad">Email</label>
+            <input type="email" name="emailCad" id="emailCad">
         </div>
         <div class="linha">
-            <label for="senha">Senha</label>
-            <input type="password" name="senha" id="senha">
+            <label for="senhaCad">Senha</label>
+            <input type="password" name="senhaCad" id="senhaCad">
         </div>
         <div class="linha">
-            <label for="confirma">Confirmar senha</label>
-            <input type="password" name="confirma" id="confirma">
+            <label for="confirmaCad">Confirmar senha</label>
+            <input type="password" name="confirmaCad" id="confirmaCad">
         </div>
         <div class="linha">
-            <label for="data">Data de nascimento</label>
-            <input type="date" name="data" id="data">
+            <label for="dataCad">Data de nascimento</label>
+            <input type="date" name="dataCad" id="dataCad">
         </div>
         <div class="cadastro">
-            <button type="submit">Entrar</button><br>
+            <button id="btnCadastro">Cadastrar</button><br>
+            <span>Já possui uma conta? Faça seu login <a href="login.php">aqui</a></span>
         </div>
     </form>
 </body>

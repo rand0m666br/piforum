@@ -3,6 +3,10 @@ session_start();
 
 if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     require("acao/conexao.php");
+
+    $conexaoClass = new Conexao();
+    $conexao = $conexaoClass->conectar();
+
     $adm = $_SESSION["usuario"][1];
     $nome = $_SESSION["usuario"][0];
 
@@ -38,11 +42,12 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
             <ul>
                 <li class="dashboard"><a href="dashboard.php">Dashboard</a></li>
                 <li><span><?php echo $nome . " (ADM)" ?></span></li>
-                <li class="voltar"><a href="index.php"><button>Voltar</button></a></li>
+                <li class="voltar"><a href="index.php"><button>Home</button></a></li>
             </ul>
         </nav>
     </div>
     <form action="dashboard.php" method="post">
+        <a href="dashboard.php"><i class="fa-solid fa-arrow-left"></i></a>
         <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar por nome">
         <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
@@ -55,7 +60,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                     <th>Nivel</th>
                     <th>Nome</th>
                     <th>Email</th>
-                    <th>Senha</th>
+                    <th class="senha">Senha</th>
                     <th>Deletar</th>
                 </tr>
             </thead>
@@ -79,7 +84,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                         <td><?php echo $usuarioAtual["nivel"]; ?></td>
                         <td><?php echo $usuarioAtual["nome"]; ?></td>
                         <td><?php echo $usuarioAtual["email"]; ?></td>
-                        <td><?php echo $usuarioAtual["senha"]; ?></td>
+                        <td class="senha"><?php echo $usuarioAtual["senha"]; ?></td>
                         <td><button class="deletar">Deletar</button></td>
                     </tr>
                 <?php endfor; ?>

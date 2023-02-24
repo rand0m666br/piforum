@@ -1,14 +1,19 @@
 <?php 
-$host = "127.0.0.1";
-$user = "root";
-$senha = "";
-$bd = "piforum";
+Class Conexao{
+    private $host = "127.0.0.1";
+    private $user = "root";
+    private $senha = "";
+    private $bd = "piforum";
 
-try {
-    $conexao = new PDO("mysql:host=$host;dbname=$bd", $user, $senha);
-    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $erro) {
-    // echo "Erro na conexão: {$erro->getMessage()}";
-    $conexao = null;
+    public function conectar(){
+        try {
+            $conexao = new PDO("mysql:host=$this->host;dbname=$this->bd", $this->user, $this->senha);
+            $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $erro) {
+            $conexao = null;
+        }
+
+        return $conexao;
+    }
 }
 ?>

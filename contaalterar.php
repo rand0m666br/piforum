@@ -42,19 +42,23 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <div class="navbar">
         <nav>
             <ul>
-                <li class="logo"><a href="index.php">Fórum Teste</a></li>
-                <li><a href="forum.php">Fórum</a></li>
-                <li><a href="sobre.php">Sobre</a></li>
+                <li class="logo"><a href="index.php"><img src="css/imagens/frontline.png" class="img" alt=""></a></li>
+                <li><a href="forum.php" class="a">Fórum</a></li>
+                <li><a href="sobre.php" class="a">Sobre</a></li>
                 <div class="login">
 
                     <?php
                     if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
+                        $adm = $_SESSION["usuario"][1];
                     ?>
-                        <li id="ativo"><a href="conta.php">Minha conta</a></li>
-                        <li><a href="acao/logout.php">Sair</a></li>
+                        <li><a href="conta.php" class="a" id="ativo"><i class="fa-solid fa-user"></i> Minha conta</a></li>
+                        <li><a href="acao/logout.php" class="a"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
+                        <?php if($adm == 2): ?>
+                            <li><a href="dashboard.php" class="a">Dashboard</a></li>
+                        <?php endif; ?>
                     <?php } else { ?>
-                        <li><a href="login.php">Login</a></li>
-                        <li><a href="cadastro.php">Cadastro</a></li>
+                        <li><a href="login.php" class="a">Login</a></li>
+                        <li><a href="cadastro.php" class="a">Cadastro</a></li>
                     <?php  } ?>
                 </div>
             </ul>

@@ -46,7 +46,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
             <ul>
                 <li class="dashboard"><a href="dashboard.php">Dashboard</a></li>
                 <li><span><?php echo $nome . " (ADM)" ?></span></li>
-                <li class="voltar"><a href="index.php"><button>Home</button></a></li>
+                <li class="voltar"><a href="index.php"><button><i class="fa-solid fa-house"></i> Home</button></a></li>
             </ul>
         </nav>
     </div>
@@ -89,7 +89,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                         <td><?php echo $usuarioAtual["nivel"]; ?></td>
                         <td><?php echo $usuarioAtual["nome"]; ?></td>
                         <td><?php echo $usuarioAtual["email"]; ?></td>
-                        <td class="senha"><?php echo $usuarioAtual["senha"]; ?></td>
+                        <td class="senha">*******</td>
                         <td><button class="deletar" idUsuario="<?php echo $usuarioAtual["id_user"]; ?>">Excluir</button></td>
                     </tr>
                 <?php endfor; ?>

@@ -32,6 +32,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <!-- Javascript -->
     <script type="text/javascript" src="script/jquery.js"></script>
     <script type="text/javascript" src="script/publicar.js"></script>
+    <script type="text/javascript" src="script/deletar.js"></script>
 
     <title>Fórum</title>
 </head>
@@ -64,7 +65,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     </div>
 
     <?php if(isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])): ?>
-    <button id="topico">Novo Tópico</button>
+    <button id="topico"><i class="fa-solid fa-pen-to-square"></i> Novo Tópico</button>
     <?php endif; ?>
 
     <div class="postagens">
@@ -74,6 +75,9 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                     <th class="usuario">Usuário</th>
                     <th>Título</th>
                     <th>Data</th>
+                    <?php if(isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"]) && $adm): ?>
+                    <th class="btnDeletar">Deletar</th>
+                    <?php endif; ?>
                 </tr>
             </thead>
             <?php
@@ -89,6 +93,9 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                     <td class="usuario"><?php echo $postagem["id_user"]; ?></td>
                     <td class="titulopost"><a href="#"><?php echo $postagem["titulo"]; ?></a></td>
                     <td class="datapost"><?php echo $postagem["data"] ?></td>
+                    <?php if(isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"]) && $adm): ?>
+                    <td class="btnDeletar"><button class="delete" idPostagem="<?php echo $postagem["id_topico"]; ?>">Deletar</button></td>
+                    <?php endif; ?>
                 </tr>
                 <?php endfor; ?>
             </tbody>

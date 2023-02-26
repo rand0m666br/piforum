@@ -1,0 +1,26 @@
+h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 35px;
+    /* -webkit-text-str oke: 1px white; */
+    font-weight: 900;
+}
+body {
+    /* background-image: url(imagens/n6BRXe.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    width: 100%;
+    height: 100%; */
+    background-image: url(imagens/Soldados_da_Força_Expedicionária_Brasileira_na_Itália_durante_a_II_Guerra_Mundial.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+}
+img {
+    display: block;
+    margin: 50px auto;
+    width: 500px;
+}

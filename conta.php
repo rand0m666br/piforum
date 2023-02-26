@@ -7,6 +7,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     $conexaoClass = new Conexao();
     $conexao = $conexaoClass->conectar();
 
+    $id   = $_SESSION["usuario"][2];
     $nome = $_SESSION["usuario"][0];
 } else {
     header("location: login.php");
@@ -62,8 +63,8 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     </div>
 
     <?php
-        $query = $conexao->prepare("SELECT * FROM `usuario` WHERE `nome`='$nome'");
-        $query->execute();
+        $query = $conexao->prepare("SELECT * FROM `usuario` WHERE `id_user`=?");
+        $query->execute(array($id));
 
         $user = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -82,11 +83,11 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
             </tr>
             <tr>
                 <th>Senha:</th>
-                <td><?php echo $usuarioAtual["senha"]; ?></td>
+                <td>******</td>
             </tr>
         </table>
         <?php endfor; ?>
-        <!-- <a href="contaalterar.php?id_user=" class="alterar"><button>Alterar dados</button></a> -->
+        <a href="contaalterar.php?id_user=" class="alterar"><button>Alterar dados</button></a>
     </div>
 </body>
 

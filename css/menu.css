@@ -40,7 +40,8 @@ nav ul li a {
     letter-spacing: 1px;
 }
 nav ul li a:hover {
-    background-color: rgb(44, 44, 44);
+    background-image: linear-gradient(rgba(255, 0, 0, 0), rgb(255, 255, 255, 0.2));
+
 }
 #ativo {
     /* background-color: rgb(0, 136, 0); */

@@ -26,7 +26,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/topico.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,22 +68,24 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
         </nav>
     </div>
 
-<h1>Novo Tópico</h1>
-
+<div class="newtopico">
+    <h1>Novo Tópico</h1>
+    
 <form id="formularioTopico" action="acao/publicar.php" method="post">
-    <h2>Novo Tópico</h2>
+    <!-- <h2>Novo Tópico</h2> -->
     <div class="linha">
-        <label for="titulo">Titulo</label>
+        <label for="titulo">Titulo:</label>
         <input type="text" name="titulo" id="titulo">
     </div>
     <div class="linha">
-        <label for="">Topico</label>
+        <label for="">Topico:</label>
         <textarea name="topico" id="topico" cols="30" rows="10"></textarea>
     </div>
-    <div class="cadastro">
-        <button id="btnPublicar">Entrar</button><br>
+    <div class="publicar">
+        <button id="btnPublicar">Publicar</button><br>
     </div>
 </form>
+</div>
 
 </body>
 

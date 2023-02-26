@@ -16,7 +16,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,8 +54,10 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
         </nav>
     </div>
 
-    <h1>Bem vindo ao fórum</h1>
-
+    <div class="main">
+        <h1>Bem vindo ao fórum Frontline</h1>
+    </div>
+    <img src="css/imagens/feb.png" alt="">
 </body>
 
 </html>

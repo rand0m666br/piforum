@@ -51,6 +51,7 @@ Class Acesso{
         $query = $conexao->prepare("INSERT INTO `usuario`(`nivel`, `nome`, `email`, `senha`) VALUES (?, ?, ?, ?)");
         if($senha == $confirma){
             if($query->execute(array(0, $nome, $email, $senha))){
+
                 session_start();
                 $_SESSION["usuario"] = array($nome, 0);
 

@@ -7,7 +7,8 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     $conexaoClass = new Conexao();
     $conexao = $conexaoClass->conectar();
 
-    // $adm = $_SESSION["usuario"][1];
+    $id   = $_SESSION["usuario"][2];
+    // $adm  = $_SESSION["usuario"][1];
     $nome = $_SESSION["usuario"][0];
 }else {
     header("location: index.php");
@@ -61,39 +62,38 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     </div>
 
     <!-- <h1>Cadastro</h1> -->
+    <div id="mensagem"></div>
 
     <?php
-        $query = $conexao->prepare("SELECT * FROM `usuario` WHERE `nome`='$nome'");
-        $query->execute();
-    
+        $query = $conexao->prepare("SELECT * FROM `usuario` WHERE `id_user`=?");
+        $query->execute(array($id));
+
         $user = $query->fetchAll(PDO::FETCH_ASSOC);
-    
+
+        for ($i = 0; $i < sizeof($user); $i++) :
+            $usuarioAtual = $user[$i];
     ?>
-    <form id="formularioCadastro">
+    <form id="formularioAlterar" action="acao/alterar.php" method="post">
         <h2>Alterar dados</h2>
         <div class="linha">
-            <label for="nomeCad">Nome de usuário</label>
-            <input type="text" name="nomeCad" id="nomeCad" value="<?php echo $user["nome"]; ?>">
+            <label for="nomeAlt">Nome de usuário</label>
+            <input type="text" name="nomeAlt" id="nomeAlt" value="<?php echo $usuarioAtual["nome"]; ?>">
         </div>
         <div class="linha">
-            <label for="emailCad">Email</label>
-            <input type="email" name="emailCad" id="emailCad">
+            <label for="emailAlt">Email</label>
+            <input type="email" name="emailAlt" id="emailAlt" value="<?php echo $usuarioAtual["email"]; ?>">
         </div>
         <div class="linha">
-            <label for="senhaCad">Senha</label>
-            <input type="password" name="senhaCad" id="senhaCad">
+            <label for="senhaAlt">Senha</label>
+            <input type="password" name="senhaAlt" id="senhaAlt">
         </div>
         <div class="linha">
-            <label for="confirmaCad">Confirmar senha</label>
-            <input type="password" name="confirmaCad" id="confirmaCad">
+            <label for="confirmaAlt">Confirmar senha</label>
+            <input type="password" name="confirmaAlt" id="confirmaAlt">
         </div>
-        <div class="linha">
-            <label for="dataCad">Data de nascimento</label>
-            <input type="date" name="dataCad" id="dataCad">
-        </div>
+        <?php endfor; ?>
         <div class="cadastro">
-            <button id="btnCadastro">Cadastrar</button><br>
-            <span>Já possui uma conta? Faça seu login <a href="login.php">aqui</a></span>
+            <button id="btnAlterar">Alterar dados</button><br>
         </div>
     </form>
 </body>

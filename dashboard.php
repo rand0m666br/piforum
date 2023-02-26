@@ -7,7 +7,8 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     $conexaoClass = new Conexao();
     $conexao = $conexaoClass->conectar();
 
-    $adm = $_SESSION["usuario"][1];
+    $id   = $_SESSION["usuario"][2];
+    $adm  = $_SESSION["usuario"][1];
     $nome = $_SESSION["usuario"][0];
 
     // $superadm = $_SESSION["usuario"][2];
@@ -29,9 +30,12 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/47e9777af5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/47e9777af5.js" crossorigin="anonymous"></script>
 
+    <script type="text/javascript" src="script/jquery.js"></script>
+    <script type="text/javascript" src="script/deletar.js"></script>
 
     <title>Dashboard - <?php echo $nome; ?></title>
 </head>
@@ -68,10 +72,11 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
             if (isset($_POST["pesquisa"])) {
                 $nome = $_POST["pesquisa"];
                 $query = $conexao->prepare("SELECT * FROM usuario WHERE nome='$nome'");
+                $query->execute();
             }else {
-                $query = $conexao->prepare("SELECT * FROM usuario");
+                $query = $conexao->prepare("SELECT * FROM usuario WHERE id_user!=?");
+                $query->execute(array($id));
             }
-            $query->execute();
 
             $user = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -85,7 +90,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                         <td><?php echo $usuarioAtual["nome"]; ?></td>
                         <td><?php echo $usuarioAtual["email"]; ?></td>
                         <td class="senha"><?php echo $usuarioAtual["senha"]; ?></td>
-                        <td><button class="deletar">Deletar</button></td>
+                        <td><button class="deletar" idUsuario="<?php echo $usuarioAtual["id_user"]; ?>">Excluir</button></td>
                     </tr>
                 <?php endfor; ?>
                 </tbody>

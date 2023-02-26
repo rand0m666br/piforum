@@ -35,7 +35,6 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                 <li class="logo"><a href="index.php">Fórum Teste</a></li>
                 <li><a href="forum.php">Fórum</a></li>
                 <li><a href="sobre.php">Sobre</a></li>
-                <li><a href="parceiros.php">Parceiros</a></li>
                 <div class="login">
 
                     <?php

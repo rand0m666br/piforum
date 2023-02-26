@@ -34,7 +34,6 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                 <li class="logo"><a href="index.php">Fórum Teste</a></li>
                 <li><a href="forum.php">Fórum</a></li>
                 <li><a href="sobre.php">Sobre</a></li>
-                <li><a href="parceiros.php">Parceiros</a></li>
                 <div class="login">
 
                     <?php
@@ -50,6 +49,8 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
             </ul>
         </nav>
     </div>
+
+    <div id="mensagem"></div>
 
     <h1>Cadastro</h1>
 
@@ -71,10 +72,10 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
             <label for="confirmaCad">Confirmar senha</label>
             <input type="password" name="confirmaCad" id="confirmaCad">
         </div>
-        <div class="linha">
+        <!-- <div class="linha">
             <label for="dataCad">Data de nascimento</label>
             <input type="date" name="dataCad" id="dataCad">
-        </div>
+        </div> -->
         <div class="cadastro">
             <button id="btnCadastro">Cadastrar</button><br>
             <span>Já possui uma conta? Faça seu login <a href="login.php">aqui</a></span>

@@ -7,7 +7,11 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     $conexaoClass = new Conexao();
     $conexao = $conexaoClass->conectar();
 
+    $id   = $_SESSION["usuario"][2];
+    $adm  = $_SESSION["usuario"][1];
     $nome = $_SESSION["usuario"][0];
+
+    // $superadm = $_SESSION["usuario"][2];
 } else {
     header("location: login.php");
 }
@@ -23,7 +27,6 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <!-- CSS -->
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/conta.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +34,11 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <script src="https://kit.fontawesome.com/47e9777af5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
 
-    <title><?php echo $nome; ?></title>
+    <!-- Javascript -->
+    <script type="text/javascript" src="script/jquery.js"></script>
+    <!-- <script type="text/javascript" src="script/publicar.js"></script> -->
+
+    <title>Novo Tópico</title>
 </head>
 
 <body>
@@ -39,7 +46,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
         <nav>
             <ul>
                 <li class="logo"><a href="index.php">Fórum Teste</a></li>
-                <li><a href="forum.php">Fórum</a></li>
+                <li id="ativo"><a href="forum.php">Fórum</a></li>
                 <li><a href="sobre.php">Sobre</a></li>
                 <div class="login">
 
@@ -47,7 +54,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                     if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                         $adm = $_SESSION["usuario"][1];
                     ?>
-                        <li id="ativo"><a href="conta.php"><i class="fa-solid fa-user"></i> Minha conta</a></li>
+                        <li><a href="conta.php"><i class="fa-solid fa-user"></i> Minha conta</a></li>
                         <li><a href="acao/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
                         <?php if($adm == 2): ?>
                             <li><a href="dashboard.php">Dashboard</a></li>
@@ -61,33 +68,23 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
         </nav>
     </div>
 
-    <?php
-        $query = $conexao->prepare("SELECT * FROM `usuario` WHERE `nome`='$nome'");
-        $query->execute();
+<h1>Novo Tópico</h1>
 
-        $user = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        for ($i = 0; $i < sizeof($user); $i++) :
-            $usuarioAtual = $user[$i];
-    ?>
-    <div class="tabela">   
-        <table>
-            <tr>
-                <th>Nome:</th>
-                <td><?php echo $nome; ?></td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td><?php echo $usuarioAtual["email"]; ?></td>
-            </tr>
-            <tr>
-                <th>Senha:</th>
-                <td><?php echo $usuarioAtual["senha"]; ?></td>
-            </tr>
-        </table>
-        <?php endfor; ?>
-        <!-- <a href="contaalterar.php?id_user=" class="alterar"><button>Alterar dados</button></a> -->
+<form id="formularioTopico" action="acao/publicar.php" method="post">
+    <h2>Novo Tópico</h2>
+    <div class="linha">
+        <label for="titulo">Titulo</label>
+        <input type="text" name="titulo" id="titulo">
     </div>
+    <div class="linha">
+        <label for="">Topico</label>
+        <textarea name="topico" id="topico" cols="30" rows="10"></textarea>
+    </div>
+    <div class="cadastro">
+        <button id="btnPublicar">Entrar</button><br>
+    </div>
+</form>
+
 </body>
 
 </html>

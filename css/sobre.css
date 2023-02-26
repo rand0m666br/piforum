@@ -1,0 +1,16 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+section {
+    width: 90%;
+    margin: auto auto 30px auto;
+}
+section h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+ol li{
+    display: list-item;
+    list-style: upper-roman;
+    margin-left: 15px;
+}

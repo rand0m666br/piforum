@@ -37,12 +37,12 @@ $(function(){
     $("button#btnCadastro").on("click", function(e){
         e.preventDefault();
 
-        var campoNome  = $("form#formularioCadastro #nomeCad").val();
         var campoEmail = $("form#formularioCadastro #emailCad").val();
         var campoSenha = $("form#formularioCadastro #senhaCad").val();
-        var campoData = $("form#formularioCadastro #dataCad").val();
+        var campoNome = $("form#formularioCadastro #nomeCad").val();
+        var campoConfirma = $("form#formularioCadastro #confirmaCad").val();
 
-        if(campoNome.trim() == "" || campoEmail.trim() == "" || campoSenha.trim() == "" || campoData.trim() == ""){
+        if(campoEmail.trim() == "" || campoSenha.trim() == "" || campoNome.trim() == "" || campoConfirma.trim() == ""){
             $("div#mensagem").show().removeClass("red").html("Preencha todos os campos.");
         }else{
             $.ajax({
@@ -50,10 +50,10 @@ $(function(){
                 type: "POST",
                 data: {
                     type: "cadastro",
-                    nome: campoNome,
                     email: campoEmail,
                     senha: campoSenha,
-                    data: campoData
+                    nome: campoNome,
+                    confirma: campoConfirma
                 },
 
                 success: function(retorno){
@@ -61,6 +61,8 @@ $(function(){
 
                     if(retorno["erro"]){
                         $("div#mensagem").show().addClass("red").html(retorno["mensagem"]);
+                    }else if(retorno["warning"]){
+                        $("div#mensagem").show().removeClass("red").html(retorno["mensagem"]);
                     }else{
                         window.location = "dashboard.php";
                     }
@@ -72,5 +74,5 @@ $(function(){
             });
         }
     });
-
+    
 });

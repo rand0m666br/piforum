@@ -21,6 +21,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/47e9777af5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
 
     <title>Home</title>
@@ -30,18 +31,17 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <div class="navbar">
         <nav>
             <ul>
-                <li class="logo" id="ativo"><a href="index.php">Fórum Teste</a></li>
+                <li class="logo" id="ativo"><a href="index.php">Frontline</a></li>
                 <li><a href="forum.php">Fórum</a></li>
                 <li><a href="sobre.php">Sobre</a></li>
-                <li><a href="parceiros.php">Parceiros</a></li>
                 <div class="login">
 
                     <?php
                     if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                         $adm = $_SESSION["usuario"][1];
                     ?>
-                        <li><a href="conta.php">Minha conta</a></li>
-                        <li><a href="acao/logout.php">Sair</a></li>
+                        <li><a href="conta.php"><i class="fa-solid fa-user"></i> Minha conta</a></li>
+                        <li><a href="acao/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
                         <?php if($adm == 2): ?>
                             <li><a href="dashboard.php">Dashboard</a></li>
                         <?php endif; ?>

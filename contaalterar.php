@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     require("acao/conexao.php");
 
@@ -32,7 +34,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     <script type="text/javascript" src="script/jquery.js"></script>
     <script type="text/javascript" src="script/acesso.js"></script>
 
-    <title>Cadastro</title>
+    <title><?php echo $nome; ?></title>
 </head>
 
 <body>
@@ -42,7 +44,6 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
                 <li class="logo"><a href="index.php">Fórum Teste</a></li>
                 <li><a href="forum.php">Fórum</a></li>
                 <li><a href="sobre.php">Sobre</a></li>
-                <li><a href="parceiros.php">Parceiros</a></li>
                 <div class="login">
 
                     <?php
@@ -59,7 +60,7 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
         </nav>
     </div>
 
-    <h1>Cadastro</h1>
+    <!-- <h1>Cadastro</h1> -->
 
     <?php
         $query = $conexao->prepare("SELECT * FROM `usuario` WHERE `nome`='$nome'");
@@ -69,10 +70,10 @@ if (isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])) {
     
     ?>
     <form id="formularioCadastro">
-        <h2>Cadastro de membro</h2>
+        <h2>Alterar dados</h2>
         <div class="linha">
             <label for="nomeCad">Nome de usuário</label>
-            <input type="text" name="nomeCad" id="nomeCad">
+            <input type="text" name="nomeCad" id="nomeCad" value="<?php echo $user["nome"]; ?>">
         </div>
         <div class="linha">
             <label for="emailCad">Email</label>
